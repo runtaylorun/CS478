@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/SPA/Enemy/Bat/Animation.meta
-guid: 02eac5417d8abb040a7a780b279346a5
-========
-guid: eb57c395ae30d4411906438c22bb4d3d
->>>>>>>> main:Assets/Input System.meta
+guid: 4be457c4d3c7c4048b7b7722f8e5f008
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

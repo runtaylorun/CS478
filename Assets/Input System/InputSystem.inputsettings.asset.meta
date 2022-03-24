@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/SPA/Enemy/Bat/Animation/Hit.anim.meta
-guid: 99b2b79b2b97d6043b855baaf41dc575
-========
-guid: aa542df7885a24a71b2ce1687bfd7c1e
->>>>>>>> main:Assets/Input System/InputSystem.inputsettings.asset.meta
+guid: 2418e3a5510f8a3419d37a92496abd1d
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000

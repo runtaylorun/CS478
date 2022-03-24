@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/SPA/Enemy/Bat/Animation/Movement.anim.meta
-guid: 44fae654e8b965143a95917cefa988ac
-========
-guid: 5113e99a666d941ccab862117fb0722a
->>>>>>>> main:Assets/Tiles/Background Tiles/SPA_Background brown tint_0.asset.meta
+guid: 1411a42a47701f3488d6eaba8c028985
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000
