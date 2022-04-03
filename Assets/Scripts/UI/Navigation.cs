@@ -8,6 +8,7 @@ public class Navigation : MonoBehaviour
 
     public GameObject levelSelection;
     public GameObject mainMenu;
+    public Animator transition;
 
     public void ShowLevelSelection()
     {
@@ -28,23 +29,37 @@ public class Navigation : MonoBehaviour
 
     public void LoadLevel1()
     {
-        SceneManager.LoadScene("Level_1");
+        StartCoroutine(LoadScene("Level_1"));
     }
 
     public void LoadLevel2()
     {
-        if(PlayerPrefs.GetInt("level2Unlocked", 0) == 1)
+        if(LevelUnlocked("level2Unlocked"))
         {
-            SceneManager.LoadScene("Level_2");
+            StartCoroutine(LoadScene("Level_2"));
         }
     }
 
     public void LoadLevel3()
     {
-        if(PlayerPrefs.GetInt("level3Unlocked", 0) == 1)
+        if(LevelUnlocked("level3Unlocked"))
         {
-            SceneManager.LoadScene("Level_3");
+            StartCoroutine(LoadScene("Level_3"));
         }
+    }
+
+    private bool LevelUnlocked(string prefName)
+    {
+        return PlayerPrefs.GetInt(prefName, 0) == 1;
+    }
+
+    private IEnumerator LoadScene(string sceneName)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1.5f);
+
+        SceneManager.LoadScene(sceneName);
     }
     
 }
