@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 7595406404872046812}
   - component: {fileID: 4698772237232412195}
   - component: {fileID: 6424536374499618731}
+  - component: {fileID: 2782756298289215046}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -93,7 +94,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1450955329
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -855298285791758126, guid: 67c6c0dad83e34901ba55ee7e9559f8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -186,3 +187,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 10
+  jumpSpeed: 5
+  climbSpeed: 5
+--- !u!114 &2782756298289215046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5874706840411047659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8401b1c086a6c47ddb6b978f26c5eef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 3493898133690421003, guid: 5e297c0fda8e24615bd31405d83fd4e8, type: 3}
+  shootCooldown: 0.7
+  arrowVelocity: 4
