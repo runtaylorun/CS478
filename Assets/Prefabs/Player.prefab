@@ -15,13 +15,13 @@ GameObject:
   - component: {fileID: 7595406404872046812}
   - component: {fileID: 4698772237232412195}
   - component: {fileID: 6424536374499618731}
-  - component: {fileID: 2782756298289215046}
-  m_Layer: 0
+  - component: {fileID: 2271615971705213616}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5874706840411047656
 Transform:
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5874706840411047659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.3286, y: 1.6328, z: 0}
-  m_LocalScale: {x: 3.08193, y: 2.686361, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -116,12 +116,12 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 5874706840411047659}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e578f2a02a3ac4a05af2b01799053d3b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00229574, y: -0.002633745}
-  m_Size: {x: 0.34834164, y: 0.4533028}
+  m_Offset: {x: -0.01763463, y: -0.0281986}
+  m_Size: {x: 0.7267003, y: 1.179343}
   m_Direction: 0
 --- !u!50 &7595406404872046812
 Rigidbody2D:
@@ -138,11 +138,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 7
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &4698772237232412195
 MonoBehaviour:
@@ -186,21 +186,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf6fc27789844c5b947473a35cf0a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 10
-  jumpSpeed: 5
+  runSpeed: 8
+  jumpSpeed: 18
   climbSpeed: 5
---- !u!114 &2782756298289215046
-MonoBehaviour:
+--- !u!61 &2271615971705213616
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5874706840411047659}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8401b1c086a6c47ddb6b978f26c5eef3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrowPrefab: {fileID: 3493898133690421003, guid: 5e297c0fda8e24615bd31405d83fd4e8, type: 3}
-  shootCooldown: 0.7
-  arrowVelocity: 4
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0057423115, y: -0.5168394}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.9166667, y: 1.1666666}
+    newSize: {x: 0.34375, y: 0.4375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6754861, y: 0.17902684}
+  m_EdgeRadius: 0
