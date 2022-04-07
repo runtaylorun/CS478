@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runSpeed = 10f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
+    [SerializeField] Vector2 passingAction = new Vector2 (10f,10f);
 
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
@@ -16,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider2D myPlayerCollider;
     BoxCollider2D myFeetCollider;
     float gravityStart;
+
+    bool isAlive = true;
 
     void Start()
     {
@@ -28,19 +31,33 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(!isAlive)
+        {
+            return;
+        }
         Run();
         FlipSprite();   
-        ClimbLadder(); 
+        ClimbLadder();
+        Passing();
     }
 
     void OnMove(InputValue value) 
     {
+        if(!isAlive)
+        {
+            return;
+        }
+
         moveInput = value.Get<Vector2>();
         Debug.Log(moveInput);
     }
 
     void OnJump(InputValue value)
     {
+        if(!isAlive)
+        {
+            return;
+        }
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             return;
@@ -85,5 +102,15 @@ public class PlayerMovement : MonoBehaviour
 
         bool VerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
         myAnimator.SetBool("isClimbing", VerticalSpeed);
+    }
+
+    void Passing()
+    {
+        if(myPlayerCollider.IsTouchingLayers(LayerMask.GetMask("Enemies", "Traps")))
+        {
+            isAlive = false;
+            myAnimator.SetTrigger("Passing");
+            myRigidbody.velocity = passingAction;
+        }
     }
 }
