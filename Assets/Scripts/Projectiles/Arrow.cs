@@ -12,6 +12,7 @@ public class Arrow : MonoBehaviour
 
         if (col.gameObject.tag == "Platform")
         {
+            GetComponent<PolygonCollider2D>().enabled = false;
             StartCoroutine(SetDestroyTimer());
         }
 
