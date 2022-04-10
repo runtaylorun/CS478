@@ -26,6 +26,7 @@ public class slime : MonoBehaviour
         if ((slimeRigidBody.transform.position.x <= leftXBoundary && movingLeft) || (slimeRigidBody.transform.position.x >= rightXBoundary && !movingLeft))
         {
             slimeRigidBody.velocity = new Vector2(horizontalMovementSpeed *= -1, 0);
+            slimeRigidBody.transform.Rotate(0, 180, 0);
             movingLeft = !movingLeft;
         }
     }
