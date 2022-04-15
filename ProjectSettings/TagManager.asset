@@ -21,7 +21,7 @@ TagManager:
   - Bounce
   - Enemies
   - Traps
-  - 
+  - NextLevel
   - 
   - 
   - 
@@ -58,6 +58,9 @@ TagManager:
     locked: 0
   - name: Traps
     uniqueID: 1186443505
+    locked: 0
+  - name: NextLevel
+    uniqueID: 101596209
     locked: 0
   - name: Enemies
     uniqueID: 2038531573

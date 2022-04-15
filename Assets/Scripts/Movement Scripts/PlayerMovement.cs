@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runSpeed = 10f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
-    [SerializeField] Vector2 passingAction = new Vector2 (10f,10f);
+    [SerializeField] Vector2 passingAction = new Vector2 (15f,15f);
 
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
@@ -109,8 +109,9 @@ public class PlayerMovement : MonoBehaviour
         if(myPlayerCollider.IsTouchingLayers(LayerMask.GetMask("Enemies", "Traps")))
         {
             isAlive = false;
-            myAnimator.SetTrigger("Passing");
+            myAnimator.SetTrigger("isPassing");
             myRigidbody.velocity = passingAction;
+            FindObjectOfType<Session>().ProcessPlayerDeath();
         }
     }
 }
