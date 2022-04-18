@@ -27,6 +27,12 @@ public class Navigation : MonoBehaviour
         levelSelection.SetActive(false);
     }
 
+    public void LoadMainMenu()
+    {
+        Debug.Log("main menu");
+        StartCoroutine(LoadScene("Main Menu"));
+    }
+
     public void LoadLevel1()
     {
         StartCoroutine(LoadScene("Level_1"));
