@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Session : MonoBehaviour
 {
-    [SerializeField] int playerLives = 3;
+    [SerializeField] private int playerLives = 3;
+
         void Awake()
     {
         int numOfSessions = FindObjectsOfType<Session>().Length;
@@ -27,7 +28,7 @@ public class Session : MonoBehaviour
         }
         else
         {
-            ResetGameSession();
+            StartCoroutine(GameOverSequence());
         }
     }
 
@@ -40,7 +41,16 @@ public class Session : MonoBehaviour
 
     void ResetGameSession()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
+        Destroy(gameObject);
+    }
+
+    private IEnumerator GameOverSequence()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        GameObject.Find("GameOverScreen").GetComponent<Canvas>().enabled = true;
+
         Destroy(gameObject);
     }
 }

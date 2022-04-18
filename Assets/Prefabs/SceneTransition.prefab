@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3187382019111215025}
   - component: {fileID: 9047906632026962661}
   - component: {fileID: 2904647014724389245}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 99
   m_TargetDisplay: 0
 --- !u!114 &3187382019111215025
 MonoBehaviour:
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 8678604264371446838}
   - component: {fileID: 1040859827037197817}
   - component: {fileID: 562446690701828050}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}

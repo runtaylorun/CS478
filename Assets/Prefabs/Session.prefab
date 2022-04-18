@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a08e8b244a7ea4bfbad203a7afb9ccde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLives: 3
+  gameOverPanel: {fileID: 7488918511293259153, guid: a2bba74b31ed9264893603d7ec99062c, type: 3}

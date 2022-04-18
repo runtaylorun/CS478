@@ -433,7 +433,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &7488918511293259156
 MonoBehaviour:
@@ -489,6 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   gameOverPanel: {fileID: 7488918511293259153}
+  transition: {fileID: 0}
 --- !u!1 &7488918512010510987
 GameObject:
   m_ObjectHideFlags: 0

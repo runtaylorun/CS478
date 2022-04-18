@@ -156,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4722712353204290105, guid: bc3c497c2181d491eb58a369d007e538, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3407787
+      value: -1.47
       objectReference: {fileID: 0}
     - target: {fileID: 4722712353204290105, guid: bc3c497c2181d491eb58a369d007e538, type: 3}
       propertyPath: m_LocalPosition.z
@@ -770,6 +770,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1319400946055566240, guid: c50e14651dd4bfe4b9d33ca0e941d923, type: 3}
+      propertyPath: m_SortingOrder
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 4356969392565370881, guid: c50e14651dd4bfe4b9d33ca0e941d923, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -814,13 +818,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4887611176449926623, guid: c50e14651dd4bfe4b9d33ca0e941d923, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8234718475020925005, guid: c50e14651dd4bfe4b9d33ca0e941d923, type: 3}
       propertyPath: m_Name
       value: SceneTransition
       objectReference: {fileID: 0}
     - target: {fileID: 8234718475020925005, guid: c50e14651dd4bfe4b9d33ca0e941d923, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234718475020925005, guid: c50e14651dd4bfe4b9d33ca0e941d923, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9194977386712075059, guid: c50e14651dd4bfe4b9d33ca0e941d923, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c50e14651dd4bfe4b9d33ca0e941d923, type: 3}
