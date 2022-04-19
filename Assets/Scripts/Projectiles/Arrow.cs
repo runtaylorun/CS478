@@ -10,9 +10,10 @@ public class Arrow : MonoBehaviour
             Physics2D.IgnoreCollision(col, GetComponent<PolygonCollider2D>());
         }
 
-        if(col.gameObject.tag == "Enemy")
+        if(col.gameObject.tag == "Enemies")
         {
             Physics2D.IgnoreCollision(col, GetComponent<PolygonCollider2D>());
+            Camera.main.BroadcastMessage("ApplyScore", 100);
         }
 
         if (col.gameObject.tag == "Platform")

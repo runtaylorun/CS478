@@ -29,12 +29,13 @@ public class Navigation : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        Debug.Log("main menu");
+        PlayerPrefs.SetInt("score", 0);
         StartCoroutine(LoadScene("Main Menu"));
     }
 
     public void LoadLevel1()
     {
+        PlayerPrefs.SetInt("score", 0);
         StartCoroutine(LoadScene("Level_1"));
     }
 
@@ -42,6 +43,7 @@ public class Navigation : MonoBehaviour
     {
         if(LevelUnlocked("level2Unlocked"))
         {
+            PlayerPrefs.SetInt("score", 0);
             StartCoroutine(LoadScene("Level_2"));
         }
     }
@@ -50,6 +52,7 @@ public class Navigation : MonoBehaviour
     {
         if(LevelUnlocked("level3Unlocked"))
         {
+            PlayerPrefs.SetInt("score", 0);
             StartCoroutine(LoadScene("Level_3"));
         }
     }

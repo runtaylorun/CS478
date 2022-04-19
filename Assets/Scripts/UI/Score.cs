@@ -10,12 +10,14 @@ public class Score : MonoBehaviour
 
     void Start()
     {
+        score = PlayerPrefs.GetInt("score", 0);
         scoreText.text = score.ToString();
     }
 
     void ApplyScore(int amount)
     {
         score += amount;
+        PlayerPrefs.SetInt("score", score);
         scoreText.text = score.ToString();
     }
 }
