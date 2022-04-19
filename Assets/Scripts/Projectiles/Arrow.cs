@@ -7,16 +7,16 @@ public class Arrow : MonoBehaviour
     {
         if (col.gameObject.tag == "Player" || col.gameObject.tag == "Arrow")
         {
-            Physics2D.IgnoreCollision(col, GetComponent<PolygonCollider2D>());
+            Physics2D.IgnoreCollision(col, GetComponent<BoxCollider2D>());
         }
 
-        if(col.gameObject.tag == "Enemies")
+        if(col.gameObject.tag == "Enemy")
         {
-            Physics2D.IgnoreCollision(col, GetComponent<PolygonCollider2D>());
-            Camera.main.BroadcastMessage("ApplyScore", 100);
+            Physics2D.IgnoreCollision(col, GetComponent<BoxCollider2D>());
+            Destroy(gameObject);
         }
 
-        if (col.gameObject.tag == "Platform")
+        if (col.gameObject.tag == "Platform" || col.gameObject.tag == "Ground")
         {
             StartCoroutine(SetDestroyTimer());
         }
@@ -26,6 +26,6 @@ public class Arrow : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
