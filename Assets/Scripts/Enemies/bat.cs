@@ -32,6 +32,7 @@ public class bat : MonoBehaviour
         if((batRigidBody.transform.position.x <= leftXBoundary && movingLeft) || (batRigidBody.transform.position.x >= rightXBoundary && !movingLeft))
         {
             batRigidBody.velocity = new Vector2(horizontalMovementSpeed *= -1, verticalMovementSpeed);
+            batRigidBody.transform.Rotate(0, 180, 0);
             movingLeft = !movingLeft;
         }
 
@@ -44,15 +45,6 @@ public class bat : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
-        {
-            Camera.main.BroadcastMessage("ApplyScore", -100);
-            Destroy(collision.gameObject);
-
-            // Subtract life
-            // Game over screen shown if out of lives otherwise send back to start
-        }
-
         if(collision.gameObject.tag == "Arrow")
         {
             if(!isColliding)
@@ -70,6 +62,6 @@ public class bat : MonoBehaviour
         batRigidBody.velocity = new Vector2(0, 0);
         yield return new WaitForSeconds(0.25f);
 
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
