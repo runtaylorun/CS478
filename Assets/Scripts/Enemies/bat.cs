@@ -15,6 +15,7 @@ public class bat : MonoBehaviour
     private Animator batAnimator;
     private bool movingLeft;
     private bool movingUp;
+    private bool isColliding = false;
 
     void Start()
     {
@@ -45,19 +46,21 @@ public class bat : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            Camera.main.BroadcastMessage("ApplyScore", -100);
             Destroy(collision.gameObject);
 
-            // Subtract score here?
             // Subtract life
             // Game over screen shown if out of lives otherwise send back to start
         }
 
         if(collision.gameObject.tag == "Arrow")
         {
-            StartCoroutine(SetDestroyTimer());
-
-            // Play hit animation
-            // Add score here?
+            if(!isColliding)
+            {
+                isColliding = true;
+                Camera.main.BroadcastMessage("ApplyScore", 50);
+                StartCoroutine(SetDestroyTimer());
+            }
         }
     }
 

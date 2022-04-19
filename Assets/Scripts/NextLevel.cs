@@ -11,6 +11,7 @@ public class NextLevel : MonoBehaviour
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         int nextScene = currentScene + 1;
+        PlayerPrefs.SetInt("score", 0);
 
         if (nextScene == SceneManager.sceneCountInBuildSettings)
         {

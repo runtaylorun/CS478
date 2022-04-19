@@ -10,13 +10,16 @@ public class Arrow : MonoBehaviour
             Physics2D.IgnoreCollision(col, GetComponent<PolygonCollider2D>());
         }
 
-        if (col.gameObject.tag == "Platform")
+        if(col.gameObject.tag == "Enemies")
         {
-            GetComponent<PolygonCollider2D>().enabled = false;
-            StartCoroutine(SetDestroyTimer());
+            Physics2D.IgnoreCollision(col, GetComponent<PolygonCollider2D>());
+            Camera.main.BroadcastMessage("ApplyScore", 100);
         }
 
-        // Add extra cases here for collisions with other types of objects e.g Enemies, destructable objects
+        if (col.gameObject.tag == "Platform")
+        {
+            StartCoroutine(SetDestroyTimer());
+        }
     }
 
     private IEnumerator SetDestroyTimer()

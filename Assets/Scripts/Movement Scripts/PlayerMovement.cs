@@ -109,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
         if(myPlayerCollider.IsTouchingLayers(LayerMask.GetMask("Enemies", "Traps")))
         {
             isAlive = false;
+            Camera.main.BroadcastMessage("ApplyScore", -250);
             myAnimator.SetTrigger("isPassing");
             myRigidbody.velocity = passingAction;
             FindObjectOfType<Session>().ProcessPlayerDeath();
