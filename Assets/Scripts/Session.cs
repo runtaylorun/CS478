@@ -10,6 +10,7 @@ public class Session : MonoBehaviour
         void Awake()
     {
         int numOfSessions = FindObjectsOfType<Session>().Length;
+        playerLives = PlayerPrefs.GetInt("lives", 3);
         if (numOfSessions > 1)
         {
             Destroy(gameObject);
@@ -22,6 +23,8 @@ public class Session : MonoBehaviour
 
     public void ProcessPlayerDeath()
     {
+        Camera.main.BroadcastMessage("SetLivesText", playerLives - 1);
+        PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives", 3) - 1);
         if (playerLives > 1)
         {
             SubtractLife();

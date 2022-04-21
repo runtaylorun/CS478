@@ -31,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(myRigidbody.velocity.magnitude > 30)
+        {
+            myRigidbody.velocity = Vector2.ClampMagnitude(myRigidbody.velocity, 30);
+        }
+
         if(!isAlive)
         {
             return;
@@ -49,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         moveInput = value.Get<Vector2>();
-        //Debug.Log(moveInput);
     }
 
     void OnJump(InputValue value)

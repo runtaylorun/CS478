@@ -39,6 +39,7 @@ public class ground : MonoBehaviour
             if (!isColliding)
             {
                 isColliding = true;
+                GetComponent<BoxCollider2D>().enabled = false;
                 Camera.main.BroadcastMessage("ApplyScore", 50);
                 StartCoroutine(SetDestroyTimer());
             }

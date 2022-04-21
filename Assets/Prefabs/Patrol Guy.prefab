@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: -2768963814413174242}
   - component: {fileID: 2412771290874426810}
   - component: {fileID: 5114472346532471154}
-  - component: {fileID: 3039869280170419035}
   m_Layer: 11
   m_Name: Patrol Guy
   m_TagString: Enemy
@@ -168,29 +167,3 @@ MonoBehaviour:
   leftXBoundary: 0
   rightXBoundary: 0
   horizontalMovementSpeed: 0
---- !u!61 &3039869280170419035
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3220370328490994133}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.018907547, y: -0.122900486}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.12, y: 0.18}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7731056, y: 0.754199}
-  m_EdgeRadius: 0
