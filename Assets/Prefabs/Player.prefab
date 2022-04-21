@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 7087194516548734343}
   - component: {fileID: 7595406404872046812}
   - component: {fileID: 4698772237232412195}
-  - component: {fileID: 6424536374499618731}
   - component: {fileID: 2271615971705213616}
   - component: {fileID: 5863534662083658130}
+  - component: {fileID: 8221027591806406190}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -95,7 +95,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1450955329
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -855298285791758126, guid: 67c6c0dad83e34901ba55ee7e9559f8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -175,21 +175,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6424536374499618731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5874706840411047659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebf6fc27789844c5b947473a35cf0a77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runSpeed: 8
-  jumpSpeed: 18
-  climbSpeed: 5
 --- !u!61 &2271615971705213616
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -231,3 +216,19 @@ MonoBehaviour:
   arrowPrefab: {fileID: 3493898133690421003, guid: 5e297c0fda8e24615bd31405d83fd4e8, type: 3}
   shootCooldown: 0.7
   arrowVelocity: 6
+--- !u!114 &8221027591806406190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5874706840411047659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f504c3c65e26b46668988f84b964cd1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeed: 10
+  jumpSpeed: 20
+  climbSpeed: 5
+  passingAction: {x: 10, y: 10}
