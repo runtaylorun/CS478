@@ -29,6 +29,8 @@ public class EnemyMovement : MonoBehaviour
         if(other.gameObject.tag == "Arrow" && !isCollidingWithArrow)
         {
             isCollidingWithArrow = true;
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
             Camera.main.BroadcastMessage("ApplyScore", 100);
             StartCoroutine(DestroyTimer());
         }
