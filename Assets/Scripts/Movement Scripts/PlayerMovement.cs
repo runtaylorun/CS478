@@ -14,8 +14,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
     Animator myAnimator;
-    CapsuleCollider2D myPlayerCollider;
-    BoxCollider2D myFeetCollider;
+    BoxCollider2D playerCollider;
     float gravityStart;
 
     bool isAlive = true;
@@ -24,8 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-        myPlayerCollider = GetComponent<CapsuleCollider2D>();
-        myFeetCollider = GetComponent<BoxCollider2D>();
+        playerCollider = GetComponent<BoxCollider2D>();
         gravityStart = myRigidbody.gravityScale;
     }
 
@@ -62,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             return;
         }
@@ -93,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
     void ClimbLadder()
     {
-        if(!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        if(!playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
             myRigidbody.gravityScale = gravityStart;
             myAnimator.SetBool("isClimbing", false);
@@ -110,11 +108,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Passing()
     {
-        if(myPlayerCollider.IsTouchingLayers(LayerMask.GetMask("Enemies", "Traps")))
+        if(playerCollider.IsTouchingLayers(LayerMask.GetMask("Enemies", "Traps")))
         {
             isAlive = false;
-            Camera.main.BroadcastMessage("ApplyScore", -250);
+            Camera.main.BroadcastMessage("ApplyScore", -75);
             myAnimator.SetTrigger("isPassing");
+            GetComponent<BoxCollider2D>().enabled = false;
             myRigidbody.velocity = passingAction;
             FindObjectOfType<Session>().ProcessPlayerDeath();
         }
