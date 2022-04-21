@@ -22,7 +22,7 @@ TagManager:
   - Enemies
   - Traps
   - NextLevel
-  - 
+  - Coins
   - 
   - 
   - 
@@ -67,4 +67,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1450955329
+    locked: 0
+  - name: Coins
+    uniqueID: 503848829
     locked: 0
