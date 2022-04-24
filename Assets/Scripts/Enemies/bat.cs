@@ -16,11 +16,13 @@ public class bat : MonoBehaviour
     private bool movingLeft;
     private bool movingUp;
     private bool isColliding = false;
+    private AudioManager audioManager;
 
     void Start()
     {
         batRigidBody = GetComponent<Rigidbody2D>();
         batAnimator = GetComponent<Animator>();
+        audioManager = FindObjectOfType<AudioManager>();
 
         batRigidBody.velocity = new Vector2(horizontalMovementSpeed, verticalMovementSpeed);
         movingUp = verticalMovementSpeed > 0;
@@ -49,6 +51,7 @@ public class bat : MonoBehaviour
         {
             if(!isColliding)
             {
+                audioManager.Play("enemyDeath");
                 isColliding = true;
                 GetComponent<BoxCollider2D>().enabled = false;
                 Camera.main.BroadcastMessage("ApplyScore", 50);
