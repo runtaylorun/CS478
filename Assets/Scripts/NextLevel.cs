@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
 
     public Animator transition;
+    public AudioSource transitionSound;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
@@ -23,6 +26,7 @@ public class NextLevel : MonoBehaviour
 
     private IEnumerator LoadNextScene(int nextScene)
     {
+        transitionSound.Play();
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(1.5f);

@@ -12,11 +12,13 @@ public class ground : MonoBehaviour
     private Animator animator;
     private bool movingLeft;
     private bool isColliding = false;
+    private AudioManager audioManager;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioManager = FindObjectOfType<AudioManager>();
 
         rigidBody.velocity = new Vector2(horizontalMovementSpeed, 0);
         movingLeft = horizontalMovementSpeed < 0;
@@ -38,6 +40,7 @@ public class ground : MonoBehaviour
         {
             if (!isColliding)
             {
+                audioManager.Play("enemyDeath");
                 isColliding = true;
                 GetComponent<BoxCollider2D>().enabled = false;
                 Camera.main.BroadcastMessage("ApplyScore", 50);

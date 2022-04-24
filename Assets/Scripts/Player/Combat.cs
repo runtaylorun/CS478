@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class Combat : MonoBehaviour
@@ -7,6 +8,7 @@ public class Combat : MonoBehaviour
     public GameObject arrowPrefab;
     public float shootCooldown = 0.7f;
     public float arrowVelocity = 6f;
+    public AudioSource shootSound;
 
     private float nextShoot = 0;
     private Transform playerTransform;
@@ -22,6 +24,7 @@ public class Combat : MonoBehaviour
     {
         if (Time.time > nextShoot && !playerAnimator.GetBool("isClimbing") && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Passing"))
         {
+            shootSound.Play();
             nextShoot = Time.time + shootCooldown;
 
             playerAnimator.SetTrigger("shoot");

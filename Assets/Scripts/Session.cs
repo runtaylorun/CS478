@@ -27,7 +27,7 @@ public class Session : MonoBehaviour
         PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives", 3) - 1);
         if (playerLives > 1)
         {
-            SubtractLife();
+            StartCoroutine(SubtractLife());
         }
         else
         {
@@ -35,10 +35,11 @@ public class Session : MonoBehaviour
         }
     }
 
-    void SubtractLife()
+    private IEnumerator SubtractLife()
     {
         playerLives = playerLives - 1;
         int currentScene = SceneManager.GetActiveScene().buildIndex;
+        yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene(currentScene);
     }
 

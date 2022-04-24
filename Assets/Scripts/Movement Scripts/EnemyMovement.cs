@@ -8,8 +8,11 @@ public class EnemyMovement : MonoBehaviour
     private bool isCollidingWithArrow = false;
     Rigidbody2D myRigidbody;
 
+    private AudioManager audioManager;
+
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         myRigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -28,6 +31,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if(other.gameObject.tag == "Arrow" && !isCollidingWithArrow)
         {
+            audioManager.Play("enemyDeath");
             isCollidingWithArrow = true;
             GetComponent<CapsuleCollider2D>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;

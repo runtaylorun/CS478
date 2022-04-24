@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,6 +11,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
     [SerializeField] Vector2 passingAction = new Vector2 (15f,15f);
+    [SerializeField] AudioSource jumpSound;
+    [SerializeField] AudioSource footstepsSound;
+    [SerializeField] AudioSource climbSound;
+    [SerializeField] AudioSource bounceSound;
+    [SerializeField] AudioSource deathSound;
 
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
@@ -52,6 +58,24 @@ public class PlayerMovement : MonoBehaviour
         }
 
         moveInput = value.Get<Vector2>();
+        if(moveInput.y != 0 && playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")) && isAlive)
+        {
+            climbSound.Play();
+        }
+        else
+        {
+            climbSound.Pause();
+        }
+
+        if(moveInput.x != 0 && isAlive)
+        {
+            footstepsSound.Play();
+        }
+        else
+        {
+            footstepsSound.Pause();
+        }
+            
     }
 
     void OnJump(InputValue value)
@@ -66,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (value.isPressed)
         {
+            jumpSound.Play();
             myRigidbody.velocity += new Vector2(0f, jumpSpeed);
         }
     }
@@ -74,7 +99,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 playerVelocity = new Vector2 (moveInput.x * runSpeed, myRigidbody.velocity.y);
         myRigidbody.velocity = playerVelocity;
-
         bool HorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
         myAnimator.SetBool("isRunning", HorizontalSpeed);
     }
@@ -111,11 +135,21 @@ public class PlayerMovement : MonoBehaviour
         if(playerCollider.IsTouchingLayers(LayerMask.GetMask("Enemies", "Traps")))
         {
             isAlive = false;
+            deathSound.Play();
+            footstepsSound.Pause();
             Camera.main.BroadcastMessage("ApplyScore", -75);
             myAnimator.SetTrigger("isPassing");
             GetComponent<BoxCollider2D>().enabled = false;
             myRigidbody.velocity = passingAction;
             FindObjectOfType<Session>().ProcessPlayerDeath();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "mushroom")
+        {
+            bounceSound.Play();
         }
     }
 }
