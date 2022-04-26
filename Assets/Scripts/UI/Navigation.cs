@@ -40,6 +40,7 @@ public class Navigation : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        Time.timeScale = 1f;
         audioManager.Play("buttonClick");
         PlayerPrefs.SetInt("score", 0);
         PlayerPrefs.SetInt("lives", 3);
