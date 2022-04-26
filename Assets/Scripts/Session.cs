@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Session : MonoBehaviour
@@ -52,7 +53,7 @@ public class Session : MonoBehaviour
     private IEnumerator GameOverSequence()
     {
         yield return new WaitForSeconds(1.0f);
-
+        
         GameObject.Find("GameOverScreen").GetComponent<Canvas>().enabled = true;
 
         Destroy(gameObject);
