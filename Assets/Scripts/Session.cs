@@ -53,7 +53,16 @@ public class Session : MonoBehaviour
     private IEnumerator GameOverSequence()
     {
         yield return new WaitForSeconds(1.0f);
-        
+
+        if(PlayerPrefs.GetInt("score", 0) > PlayerPrefs.GetInt("highScore", 0))
+        {
+            var highScoreText = GameObject.Find("GameOverScreen").transform.Find("highScoreText").gameObject;
+            highScoreText.SetActive(true);
+            highScoreText.GetComponent<Text>().text = "New High Score: " + PlayerPrefs.GetInt("score", 0).ToString();
+            
+
+            PlayerPrefs.SetInt("highScore", PlayerPrefs.GetInt("score"));
+        }
         GameObject.Find("GameOverScreen").GetComponent<Canvas>().enabled = true;
 
         Destroy(gameObject);
