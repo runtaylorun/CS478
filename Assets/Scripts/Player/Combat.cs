@@ -22,7 +22,7 @@ public class Combat : MonoBehaviour
 
     public void OnFire(InputValue value)
     {
-        if (Time.time > nextShoot && !playerAnimator.GetBool("isClimbing") && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Passing"))
+        if (Time.time > nextShoot && !playerAnimator.GetBool("isClimbing") && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Passing") && Time.timeScale == 1f)
         {
             shootSound.Play();
             nextShoot = Time.time + shootCooldown;
