@@ -33,7 +33,6 @@ public class AudioManager : MonoBehaviour
         {
             Debug.Log("Sound not found " + name);
         }
-        Debug.Log("Playing");
         s.source.Play();
     }
 }
