@@ -12,16 +12,22 @@ public class NextLevel : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
-        int nextScene = currentScene + 1;
-        PlayerPrefs.SetInt($"level{nextScene}Unlocked", 1);
-
-        if (nextScene == SceneManager.sceneCountInBuildSettings)
+        if(other.gameObject.tag == "Player")
         {
-            nextScene = 1;
-        }
+            int currentScene = SceneManager.GetActiveScene().buildIndex;
+            int nextScene = currentScene + 1;
+            PlayerPrefs.SetInt($"level{nextScene}Unlocked", 1);
 
-        StartCoroutine(LoadNextScene(nextScene));
+            if (nextScene == SceneManager.sceneCountInBuildSettings)
+            {
+                nextScene = 1;
+                PlayerPrefs.SetInt("score", 0);
+                PlayerPrefs.SetInt("lives", 3);
+            }
+
+            StartCoroutine(LoadNextScene(nextScene));
+        }
+        
     }
 
     private IEnumerator LoadNextScene(int nextScene)
